@@ -1,0 +1,19 @@
+  
+web:
+  build: .
+  dockerfile: Dockerfile
+  links:
+   - db
+  ports:
+   - "3000:3000"
+  volumes:
+   - .:/usr/src/app/
+   - /usr/src/app/node_modules  
+  environment:
+   NODE_ENV: development 
+   MONGO_URI: 'mongodb://db:27019'
+   
+db:
+  image: mongo:latest
+  ports:
+   - "27019:27017"

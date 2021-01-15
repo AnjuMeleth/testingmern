@@ -1,0 +1,8 @@
+FROM node:9-slim
+ENV PORT 3000 
+EXPOSE 3000
+WORKDIR /usr/src/app
+COPY . .
+COPY package.json /usr/src/app/
+RUN npm install
+CMD ["npm", "run", "development"]
